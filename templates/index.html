@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Your Bot</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }
+        textarea { width: 100%; height: 100px; }
+        button { margin-top: 10px; }
+        .response { margin-top: 20px; white-space: pre-wrap; background: #f1f1f1; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Ask Your Chatbot</h1>
+    <textarea id="question" placeholder="Type your question..."></textarea><br>
+    <button onclick="ask()">Send</button>
+    <div class="response" id="response"></div>
+
+    <script>
+        async function ask() {
+            const question = document.getElementById("question").value;
+            const resBox = document.getElementById("response");
+            resBox.innerText = "Thinking...";
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question })
+            });
+            const data = await res.json();
+            resBox.innerText = data.response;
+        }
+    </script>
+</body>
+</html>
