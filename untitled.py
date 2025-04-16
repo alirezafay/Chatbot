@@ -2,11 +2,13 @@
 from flask import Flask, request, jsonify
 import requests
 import json
+import os
+
 
 
 app = Flask(__name__)
 
-API_KEY = "API"
+API_KEY = os.environ.get("API_KEY")
 URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
 
 
