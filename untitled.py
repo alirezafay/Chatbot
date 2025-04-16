@@ -54,7 +54,7 @@ def generate_response(user_question):
     # Inject user profile context into the request
     prompt = context.replace("INSERT_USER_QUESTION_HERE", user_question)
     
-    payload = {"contents": [{"parts": [{"text": user_question}]}]}
+    payload = {"contents": [{"parts": [{"text": prompt}]}]}
     headers = {"Content-Type": "application/json"}
 
     response = requests.post(URL, json=payload, headers=headers)
