@@ -26,7 +26,8 @@ def load_json_from_google_drive(file_id):
             raise Exception("The file is not a valid JSON format.")
     else:
         raise Exception(f"Failed to download JSON: {response.status_code}")
-file_id = "1kqCbNDU_Lfld9YRXTdaSX-4h8LaObDdV"  
+file_id = "1EXydf4uN_MjP6Q9sYtAG-GT8DF0Yyz9_"        
+file_id2 = "1kqCbNDU_Lfld9YRXTdaSX-4h8LaObDdV"  
 user_data = load_json_from_google_drive(file_id)
 
 # Example: Access personal details
